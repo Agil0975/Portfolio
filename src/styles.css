@@ -1,4 +1,19 @@
-/* Resetting Default Styles */
+/* 
+    variable 
+*/
+:root {
+    --primary-color: #1d1e24;
+    --secondary-color: #212428;
+    --tertiary-color: #30343a;
+    --contrast-color: #ff014f;
+    --title-color: #ffffff;
+    --nav-color: #e4e6ea;
+    --text-color: #c7ccd3;
+}
+
+/* 
+    global 
+*/
 * {
     margin: 0;
     padding: 0;
@@ -6,132 +21,287 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 0 5%;
 }
 
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 1.5rem;
+ul {
+    list-style-type: none;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
+/* 
+    navigation 
+*/
+
+#header-nav ul {
+    display: none;
+    background-color: var(--secondary-color);
+}
+
+#header-nav ul li {
+    padding: 0.5rem;
+    font-size: 1rem;
 }
 
 nav ul li a {
-    color: white;
     text-decoration: none;
-    font-size: 1.2rem;
-    padding: 0.5rem 1rem;
-    transition: background 0.3s ease;
+    color: var(--nav-color);
 }
 
-nav ul li a:hover {
-    background-color: #3E8E41;
+nav ul li:hover {
     border-radius: 5px;
+    background-color: var(--contrast-color);
+    transition: background 1s ease;
 }
 
-.hero {
-    text-align: center;
-    margin: 2rem 0;
+/* 
+    Header 
+*/
+header {
+    background-image: url('https://www.fsrd.itb.ac.id/wp-content/uploads/2022/05/1618210624-DSC_8353-scaled-1-1.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: clamp(0.75rem, 2vw, 1rem);
 }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
+header section {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 1rem;
 }
 
-.hero p {
-    font-size: 1.5rem;
-    color: #F8F8F8;
+header h1 {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    color: var(--title-color);
 }
 
+header figure {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+header figure img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* 
+    main 
+*/
 main {
-    padding: 2rem;
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: 20% 80%;     /* 1 kolom untuk navigasi dan 3 kolom untuk konten */
+    grid-template-rows: auto auto auto auto; /* 3 baris untuk kolom ke-2 */
 }
 
-#about, #projects, #skills {
-    margin-bottom: 2rem;
-}
-
-h2 {
+main h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: var(--title-color);
 }
 
-p {
-    font-size: 1rem;
-    color: #666;
-}
+    /* 
+        Navigation 
+    */
+    #main-nav {
+        grid-column: 1 / 2;     /* kolom pertama */
+        grid-row: 1 / 5;        /* semua baris */
+        padding-right: 20px;
+    }
 
-.project-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-}
-
-.project-card {
-    background-color: #fff;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
-}
-
-footer a {
-    color: #4CAF50;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-    nav ul {
+    #main-nav ul {
+        display: flex;
         flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        position: sticky;
+        background-color: var(--secondary-color);
+        border-radius: 10px;
+        top: 0;
+    }
+
+    #main-nav ul li {
+        width: 100%;
+        height: 75px;
+        font-size: clamp(14px, 1.5vw, 2rem);
+        color: var(--nav-color);
+        display: flex;
+        justify-content: center;
         align-items: center;
     }
 
-    .hero h1 {
-        font-size: 2.5rem;
+    /* 
+        About 
+    */
+    #about {
+        background-color: var(--secondary-color);
+        padding: 1.5rem;
+        border-radius: 10px;
     }
 
-    .hero p {
-        font-size: 1.2rem;
+    #about p {
+        text-align: justify;
     }
 
-    h2 {
-        font-size: 1.75rem;
+    abbr {
+        text-decoration: none;
+    }
+    
+    /* 
+        Projects 
+    */
+    #projects {
+        background-color: var(--secondary-color);
+        padding: 1.5rem;
+        margin-top: 2rem;
+        border-radius: 10px;
+    }
+
+    #projects ul {
+        width: 100%;       /* lebar list */
+        height: 300px;      /* tinggi list tetap */
+        overflow-y: auto;   /* aktifkan scroll vertikal */
+    }
+
+    #projects ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    #projects ul li {
+        margin: 1rem 0 0 0;
+    }
+
+    #projects ul li a {
+        text-decoration: none;
+        color: var(--nav-color);
+    }
+
+    .project-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+    }
+
+    .project-card {
+        background-color: var(--tertiary-color);
+        padding: 1.5rem;
+        border-radius: 10px;
+        transition: transform 1s ease 0s, background 1s ease 0s;
+    }
+
+    .project-card:hover {
+        transform: translateY(-10px);
+        background-color: var(--contrast-color);
+    }
+
+    /* 
+        Skills 
+    */
+    #skills {
+        background-color: var(--secondary-color);
+        padding: 1.5rem;
+        margin-top: 2rem;
+        border-radius: 10px;
+    }
+
+    /* 
+        Contact 
+    */
+    #contact {
+        background-color: var(--secondary-color);
+        padding: 1.5rem;
+        margin-top: 2rem;
+        border-radius: 10px;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+    }
+
+    .contact-item img {
+        width: 27px;
+        height: 27px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .contact-item span, .contact-item a {
+        margin-left: 10px;
+        color: var(--text-color);
+        text-decoration: none;
+    }
+
+    .contact-item a:hover {
+        color: var(--contrast-color);
+    }
+
+/* 
+    Footer 
+*/
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 50px;
+}
+
+footer p:hover {
+    text-decoration: underline;
+}
+
+/* 
+    Responsiveness 
+*/
+@media (max-width: 800px) {
+    body {
+        padding: 0 2%;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #header-nav {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    #header-nav ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 0 0 5px 5px;
+    }
+
+    main {
+        grid-template-columns: 1fr; /* Hanya satu kolom */
+    }
+
+    #main-nav {
+        display: none;
+    }
+
+    #about, #projects, #skills, #contact {
+        grid-column: 1 / 2; /* Semua item berada di kolom pertama */
     }
 }
 
 @media (max-width: 480px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
+    #header-nav ul li a {
+        font-size: clamp(0.75rem, 2vw, 1rem);
     }
 }
