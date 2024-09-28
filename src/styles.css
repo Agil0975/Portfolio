@@ -306,6 +306,10 @@ footer p:hover {
         text-align: center;
     }
 
+    header figure {
+        margin-top: 1rem;
+    }
+
     #header-nav {
         position: sticky;
         top: 0;
